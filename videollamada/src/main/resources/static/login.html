@@ -1,15 +1,106 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Login Page</title>
-
-    <link rel="stylesheet" href="/css/login.css">
-    <link rel="icon" href="http:" type="image/x-icon">
-
+    <title>Iniciar Sesión - Videollamada</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <div class="container-auth">
+        <div class="auth-box login-box">
+            <div class="auth-header">
+                <h1>Iniciar Sesión</h1>
+                <p>Accede a tu cuenta de videollamadas</p>
+            </div>
+
+            <form id="loginForm" class="form-register">
+                <!-- Campo Email -->
+                <div class="form-group">
+                    <label for="email">
+                        <i class="fas fa-envelope"></i> Correo Electrónico
+                    </label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="tu@email.com"
+                        required>
+                    <span id="email-error" class="error-message"></span>
+                </div>
+
+                <!-- Campo Contraseña -->
+                <div class="form-group">
+                    <label for="password">
+                        <i class="fas fa-lock"></i> Contraseña
+                    </label>
+                    <div class="password-wrapper">
+                        <input 
+                            type="password" 
+                            id="password" 
+                            name="password" 
+                            placeholder="Tu contraseña"
+                            required>
+                        <button type="button" class="toggle-password" onclick="togglePassword('password')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <span id="password-error" class="error-message"></span>
+                </div>
+
+                <!-- Recuerda contraseña y olvide contraseña -->
+                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem;">
+                    <div class="form-group checkbox" style="margin: 0;">
+                        <input type="checkbox" id="remember" name="remember">
+                        <label for="remember" style="margin: 0;">Recuérdame</label>
+                    </div>
+                    <a href="#" style="color: var(--primary-color); text-decoration: none; font-weight: 600;">¿Olvidó su contraseña?</a>
+                </div>
+
+                <!-- Botón Login -->
+                <button type="submit" class="btn-submit">
+                    <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+                </button>
+            </form>
+
+            <!-- Enlaces -->
+            <div class="auth-footer">
+                <p>¿No tienes cuenta? 
+                    <a href="register.html" class="link-auth">Regístrate aquí</a>
+                </p>
+            </div>
+
+            <!-- Redes Sociales -->
+            <div class="social-register">
+                <p>O inicia sesión con</p>
+                <div class="social-buttons">
+                    <button class="social-btn google">
+                        <i class="fab fa-google"></i>
+                    </button>
+                    <button class="social-btn github">
+                        <i class="fab fa-github"></i>
+                    </button>
+                    <button class="social-btn microsoft">
+                        <i class="fab fa-microsoft"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lado decorativo -->
+        <div class="auth-decorator">
+            <div class="decorator-content">
+                <h2>Bienvenido de Vuelta</h2>
+                <p>Conecta instantáneamente con tus amigos y familia</p>
+                <div class="decorator-icon">
+                    <i class="fas fa-video"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/login.js"></script>
+<script src ="/js/login.js"></script>
 </body>
 </html>

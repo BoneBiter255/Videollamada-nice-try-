@@ -24,19 +24,19 @@ public class VideollamadaApplication {
 			service.registerUser(User.builder()
 			.username("Hueso")
 			.email("Hueso@mail.com")
-			.password("1234")
+			.password("12345678")
 			.build());
 
 			service.registerUser(User.builder()
 			.username("Palacios")
 			.email("Palacios@mail.com")
-			.password("1234")
+			.password("12345678")
 			.build());
 
 			service.registerUser(User.builder()
 			.username("Marlini")
 			.email("Marlini@mail.com")
-			.password("1234")
+			.password("12345678")
 			.build());
 
 		};

@@ -21,18 +21,19 @@ public class UserService {
     }
     public User login(User user){
         var userIndex = IntStream.range(0, USERS_LIST.size())
-                .filter(i -> USERS_LIST.get(i).getUsername().equals(user.getUsername()) &&
-                        USERS_LIST.get(i).getPassword().equals(user.getPassword()))
+                .filter(i -> {
+                    User u = USERS_LIST.get(i);
+                    // Buscar por email O username
+                    boolean emailMatch = user.getEmail() != null && u.getEmail().equals(user.getEmail());
+                    boolean usernameMatch = user.getUsername() != null && u.getUsername().equals(user.getUsername());
+                    return (emailMatch || usernameMatch) && u.getPassword().equals(user.getPassword());
+                })
                 .findFirst()
-                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+                .orElseThrow(() -> new RuntimeException("Usuario o contraseña incorrectos"));
+        
         var cUser = USERS_LIST.get(userIndex);
-        if (!cUser.getPassword().equals(user.getPassword())) {
-            throw new RuntimeException("Contraseña incorrecta");
-        }
-         cUser.setStatus("online");
-         return cUser;
-
-
+        cUser.setStatus("online");
+        return cUser;
     }
     public void logout(String email){
         var userIndex = IntStream.range(0, USERS_LIST.size())
